@@ -6,12 +6,6 @@
   "husky": {
     "hooks": {
       "pre-commit": "npm run lint"
-    },
-    "lint-staged": {
-      "*.js": [
-        "eslint --fix",
-        "git add"
-      ]
     }
   },
   "scripts": {
@@ -31,11 +25,9 @@
     "eslint-plugin-react": "^7.19.0",
     "eslint-plugin-react-hooks": "^2.5.0",
     "husky": "^4.2.5",
+    "jest": "^26.0.1",
     "lint-staged": "^10.2.2",
     "serverless": "^1.67.3"
   },
-  "dependencies": {},
-  "lint-staged": {
-    "*.js": "eslint --cache --fix"
-  }
+  "dependencies": {}
 }
