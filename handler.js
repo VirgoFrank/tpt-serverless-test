@@ -1,16 +1,55 @@
 'use strict';
 
 module.exports.hello = async event => {
+
+
   return {
     statusCode: 200,
-    body: JSON.stringify(
-      {
-        message: 'Go Serverless v1.0! Your function executed successfully!',
-        input: event,
-      },
-      null,
-      2
-    ),
+    headers: { 'Content-Type': 'text/html' },
+    body: 
+        `<input type="number" id="a" value="56">
+        <select id="Operation">
+          <option value="+">+</option>
+          <option value="-">-</option>
+          <option value="/">/</option>
+          <option value="*">*</option>
+          <option value=">">></option>
+          <option value="<"><</option>
+          <option value="=">=</option>
+          <option value=">=">>=</option>
+          <option value="<="><=</option>
+        </select>
+        <input type="number" id="b" value="9">
+        <input type="submit" style="color:red;" value="=" onclick="fun()">
+        <strong id="result">false</strong>
+        <script>
+
+        function fun(){
+            var e = document.getElementById("Operation");
+            let selected = e.options[e.selectedIndex].value;
+            var result = document.getElementById("result");
+            let a =parseInt(document.getElementById("a").value);
+            let b = parseInt(document.getElementById("b").value);
+
+            var math={
+                "+":function(x,y) {return x+y},
+                "-":function(x,y) {return x-y},
+                "/":function(x,y) {return x/y},
+                "*":function(x,y) {return x*y},
+                ">":function(x,y) {return x>y},
+                "<":function(x,y) {return x<y},
+                ">=":function(x,y) {return x>=y},
+                "<=":function(x,y) {return x<=y},
+                "=":function(x,y) {return x==y}
+            };
+           result.innerHTML= math[selected](a,b);
+        }
+        
+
+    </script>
+        `
+        
+    
   };
 
   // Use this code if you don't use the http event with the LAMBDA-PROXY integration
