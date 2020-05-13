@@ -1,12 +1,8 @@
-'use strict';
 
-module.exports.hello = async event => {
-
-
-  return {
-    statusCode: 200,
-    headers: { 'Content-Type': 'text/html' },
-    body: 
+module.exports.hello = async (event) => ({
+  statusCode: 200,
+  headers: { 'Content-Type': 'text/html' },
+  body:
         `<input type="number" id="a" value="56">
         <select id="Operation">
           <option value="+">+</option>
@@ -47,11 +43,7 @@ module.exports.hello = async event => {
         
 
     </script>
-        `
-        
-    
-  };
+        `,
 
-  // Use this code if you don't use the http event with the LAMBDA-PROXY integration
-  // return { message: 'Go Serverless v1.0! Your function executed successfully!', event };
-};
+
+});
